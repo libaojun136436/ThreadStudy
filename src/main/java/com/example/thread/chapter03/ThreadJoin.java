@@ -14,7 +14,7 @@ public class ThreadJoin {
         Thread  t1=new Thread(()->{
             for(int i=1;i<8;i++){
                 try {
-                    TimeUnit.SECONDS.sleep(10);
+                    TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -22,10 +22,24 @@ public class ThreadJoin {
             }
 
         });
+        Thread  t3=new Thread(()->{
+            for(int i=1;i<8;i++){
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("我是线程C"+i);
+            }
+
+        });
+
         t1.start();
+        t3.start();
         new Thread(()->{
             try {
                 t1.join();
+                t3.join();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
