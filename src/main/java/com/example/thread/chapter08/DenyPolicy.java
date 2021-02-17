@@ -13,7 +13,7 @@ public interface DenyPolicy {
 
         @Override
         public void reject(Runnable runable, ThreadPool threadPool) {
-
+            System.out.println("我被丢弃了");
             //do something
         }
     }

@@ -115,7 +115,7 @@ public class BasicThreadPool extends Thread implements ThreadPool {
                 //当前的队列中有任务尚未处理，并且activeCount<maxSize则继续扩容
                 if(runnableQueue.size()>0&&activeCount<maxSize){
                     for(int i=coreSize;i<maxSize;i++){
-                        new Thread();
+                        newThread();
                     }
                 }
                 //如果当前队列中没有任务，则需要回收，回收到coreSize即可
